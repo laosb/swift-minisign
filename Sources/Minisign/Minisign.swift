@@ -11,7 +11,7 @@ import Foundation
   import CryptoKit
 #endif
 
-public enum SignatureAlgorithm: RawRepresentable {
+public enum SignatureAlgorithm: Sendable, RawRepresentable {
   case pureEdDSA
   case hashedEdDSA
 
@@ -39,7 +39,7 @@ public enum SignatureAlgorithm: RawRepresentable {
 private let untrustedCommentHeader = "untrusted comment: ".data(using: .utf8)!
 private let trustedCommentHeader = "trusted comment: ".data(using: .utf8)!
 
-public struct PublicKey {
+public struct PublicKey: Sendable {
   public let untrustedComment: String
   public let signatureAlgorithm: SignatureAlgorithm
   public let keyID: Data
@@ -115,7 +115,7 @@ public struct PublicKey {
   }
 }
 
-public struct Signature {
+public struct Signature: Sendable {
   public let untrustedComment: String
   public let signatureAlgorithm: SignatureAlgorithm
   public let keyID: Data
