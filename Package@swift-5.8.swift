@@ -39,5 +39,5 @@ let package = Package(
       dependencies: ["Minisign"]
     ),
   ],
-  swiftLanguageModes: [.version("6"), .v5],
+  swiftLanguageVersions: [.version("6"), .v5]
 )
