@@ -87,13 +87,12 @@ public struct PublicKey: Sendable {
   ///
   /// This method reads the file in chunks to avoid loading the entire file into memory, but does so in a blocking manner.
   /// It's recommended to use this method in a background thread or task.
-  public func isValidSignature(_ signature: Signature, forFileAt url: URL) throws -> Bool {
+  public func isValidSignature(_ signature: Signature, forFileAt url: URL, bufferSize: Int = 8192) throws -> Bool {
     guard signature.signatureAlgorithm == .hashedEdDSA else { throw SignatureVerifyError.algorithmNotSupportedForFile }
     var blake2b = try! BLAKE2b()
 
     let fileHandle = try FileHandle(forReadingFrom: url)
 
-    let bufferSize = 4096
     while true {
       let data = fileHandle.readData(ofLength: bufferSize)
       if data.isEmpty { break }
