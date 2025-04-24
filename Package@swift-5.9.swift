@@ -1,4 +1,4 @@
-// swift-tools-version: 5.8
+// swift-tools-version: 5.9
 
 import PackageDescription
 
@@ -18,7 +18,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-crypto", from: "2.0.0"),
+    .package(url: "https://github.com/apple/swift-crypto", "1.0.0" ..< "4.0.0"),
     .package(url: "https://github.com/lovetodream/swift-blake2", from: "0.1.0"),
   ],
   targets: [

@@ -6,9 +6,9 @@ import BLAKE2
 import Foundation
 
 #if UseSwiftCrypto
-  import Crypto
+  @preconcurrency import Crypto
 #else
-  import CryptoKit
+  @preconcurrency import CryptoKit
 #endif
 
 public enum SignatureAlgorithm: Sendable, RawRepresentable {

@@ -27,7 +27,7 @@ let package = Package(
     .default(enabledTraits: ["UseSwiftCrypto"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-crypto", from: "2.0.0"),
+    .package(url: "https://github.com/apple/swift-crypto", "1.0.0" ..< "4.0.0"),
     .package(url: "https://github.com/lovetodream/swift-blake2", from: "0.1.0")
   ],
   targets: [
@@ -44,5 +44,6 @@ let package = Package(
       name: "MinisignTests",
       dependencies: ["Minisign"]
     ),
-  ]
+  ],
+  swiftLanguageModes: [.v6]
 )
